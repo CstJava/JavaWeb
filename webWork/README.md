@@ -1,13 +1,13 @@
 # webWork
-模仿知乎网的一个网站
-1. 搭建开发环境
-	1.1 导入开发包
-		mysql驱动：
-		DBUtils开发包：
-		log4j开发包：commons-fileupload-1.3.1.jar
-	1.2 创建程序包
+模仿知乎网的一个网站  
+1. 搭建开发环境   
+	1.1 导入开发包  
+		mysql驱动：  
+		DBUtils开发包：  
+		log4j开发包：commons-fileupload-1.3.1.jar  
+	1.2 创建程序包  
 	  filter
-		jdbc
+		jdbc  
 		service
 		service.comment
     service.topic
