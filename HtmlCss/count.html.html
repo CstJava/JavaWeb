@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<style type="text/css">
+			html,body{
+				width: 100%;
+				height: 100%;
+				margin: 0;
+  				padding: 0;
+  				-webkit-perspective: 1500;
+                background-image: -webkit-linear-gradient(left,#48898c,#a887cc,#8c6767);
+			}
+			
+			
+			.outer{
+				transition: all 0.5s ease-in-out; 
+				position: absolute;
+				-webkit-perspective: 1500;
+				top: 100px;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				width: 400px;
+				height: 500px;
+				background: black;
+				transform-style:preserve-3d ;
+				transform: rotateX(0deg);
+				border-radius:20px;
+				box-shadow: 0px 30px 40px 0px rgba(0, 0, 0, 0.75);
+			}
+			
+			.outer:after{
+				display: block;
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border-radius:20px ;
+				background:rgba(251, 149, 149, 0.2);
+				top: 0;
+			}
+			
+			.outer>div{
+				transform-style: preserve-3d;
+				float: left;				
+				transform-style:preserve-3d ;
+				width: 30px;
+				height: 1px;
+				margin-top:250px ;
+				margin-left:50px ;
+				transform: rotateZ(45deg) rotateX(-90deg) translateY(-15px);	
+				background: linear-gradient(to bottom, #feffff 0%, #ddf1f9 0%, #a0d8ef 100%);	
+			}
+			
+			.outer>div span{
+				display: block;
+				transform: rotateZ(90deg) translateX(10px);
+			}
+			
+			
+			.outer>div:before{
+				font-size: 20px;
+				transition: all 0.5s ease-in-out; 
+				display: block;
+  				content: '';
+  				position: absolute;
+				width: 30px;
+				height: 30px;		
+				background: white;
+				transform:rotateX(90deg) translateY(-15px) translateZ(15px);
+			}
+			
+			.outer>div:after{
+				transition: all 0.5s ease-in-out; 
+				display: block;
+  				content: '';
+  				position: absolute;
+				width: 30px;
+				height: 100%;
+				background: linear-gradient(to bottom, #feffff 0%, #85d7f7 0%, #4c8596 100%);	
+				top:15px;
+				transform: rotateY(-90deg) translateZ(-15px) translateX(-15px) translateY(-15px);
+			}
+			
+			h3{
+				font-size: 50px;
+			    top: 300px;
+			    position: absolute;
+			    color: white;
+			    left: 123px;
+			}
+			
+			.details .outer{
+				background: #100909;
+				transform:rotateX(60deg) ;
+				top: 200px;
+			}
+			
+			.details .outer:after{
+				transform: translateZ(20px);
+				background-color: rgba(0, 50, 100, 0.8);	
+			}
+			
+			.details .bar1{
+				transition: all 0.5s ease-in-out; 
+				height: 200px;
+				transform:rotateZ(45deg) rotateX(-90deg) translate3d(-50px,-120px,-50px);
+			}
+			.details .bar2{
+				transition: all 0.5s 0.2s ease-in-out; 
+				height: 300px;
+				transform:rotateZ(45deg) rotateX(-90deg) translate3d(-87px,-170px,-90px);
+			}
+			
+			.details .bar3{
+				transition: all 0.5s 0.4s ease-in-out; 
+				height: 100px;
+				transform:rotateZ(45deg) rotateX(-90deg) translate3d(-15px,-70px,-20px);
+			}
+			
+			.details .bar4{
+				transition: all 0.5s 0.6s ease-in-out; 
+				height: 100px;
+				transform:rotateZ(45deg) rotateX(-90deg) translate3d(-15px,-70px,-20px);
+			}
+			
+			.details .bar1:before{
+				content: 'M';	
+			}
+			
+			.details .bar2:before{
+				content: 'B';	
+			}
+			
+			.details .bar3:before{
+				content: 'C';	
+			}
+			
+			.details .bar4:before{
+				content: 'D';	
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="outer">	
+			<div class="bar1"><span>20110</span></div>
+			<div class="bar2"><span>32000</span></div>
+			<div class="bar3"><span>10000</span></div>
+			<div class="bar4"><span>10000</span></div>
+			<h3>count</h3>
+		
+		<script>
+			var body = document.body;
+			var tilted = false;
+			var toggleTilt = function () {
+			    tilted = !tilted;
+			    if (tilted)
+			        body.classList.add('details');
+			    else
+			        body.classList.remove('details');
+			};
+			body.addEventListener('click', toggleTilt);
+			body.addEventListener('touchstart', toggleTilt);
+			
+		</script>
+	</body>
+</html>
