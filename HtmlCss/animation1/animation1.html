@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			html,body{
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				background: black;
+				perspective: 100rem;
+			}
+			
+			#outer{
+				position: absolute;
+				width: 250px;
+				height: 250px;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				transform-style: preserve-3d;	
+				transition: all 1s linear;
+				transform:rotateX(-15deg) rotateY(18deg) rotateZ(2deg);		
+			}
+			
+			#outer>img{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				box-shadow:0 0 20px orange;
+			}
+			
+			#outer .block1{
+				transform:rotateY(0deg) translateZ(150px);		
+				background: url(img/172467-106.jpg);	
+				background-size: cover;	
+			}
+			
+			#outer .block2{
+				transform:rotateY(90deg) translateZ(150px);		
+				background: url(img/249001-106.jpg);	
+				background-size: cover;		
+			}
+			
+			#outer .block3{
+				transform:rotateY(180deg) translateZ(150px);		
+				background: url(img/352854-106.jpg);	
+				background-size: cover;		
+			}
+			
+			#outer .block4{
+				transform:rotateY(270deg) translateZ(150px);		
+				background: url(img/75035-106.jpg);		
+				background-size: cover;	
+			}
+			
+			#outer .block5{
+				transform:rotateX(90deg) translateZ(150px);		
+				background: url(img/75070-106.jpg);		
+				background-size: cover;	
+			}
+			
+			#outer .block6{
+				transform:rotateX(270deg) translateZ(150px);		
+				background: url(img/9214-106.jpg) ;
+				background-size: cover;			
+			}
+			
+			.menu{
+				width: 320px;
+				position: absolute;
+				top: 50px;
+				left: 50px;
+			}
+			
+			.menu>img{
+				width: 115px;
+				height: 115px;
+				float: left;
+				margin-top: 10px;
+				margin-left: 10px;
+				box-shadow: 0 0 5px orange;
+				cursor: pointer;
+			}
+			
+			.menu>img:hover{
+				box-shadow: 0 0 20px orange;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="outer">
+			
+			<img src="img/172467-106.jpg" class="block1">
+			<img src="img/249001-106.jpg" class="block2">
+			<img src="img/352854-106.jpg" class="block3">
+			<img src="img/75035-106.jpg" class="block4">
+			<img src="img/75070-106.jpg" class="block5">
+			<img src="img/9214-106.jpg" class="block6">	
+			
+		</div>
+		
+		<div class="menu">			
+			<img src="img/172467-106.jpg" class="block1" onclick="one()">
+			<img src="img/75035-106.jpg" class="block2" onclick="two()">
+			<img src="img/352854-106.jpg" class="block3" onclick="three()">
+			<img src="img/249001-106.jpg"class="block4" onclick="four()">
+			<img src="img/75070-106.jpg" class="block5" onclick="five()">
+			<img src="img/9214-106.jpg" class="block6" onclick="six()">				
+		</div>
+		
+		<script type="text/javascript">
+			
+			function one(){
+				document.getElementById('outer').style.transform='rotateX(-15deg) rotateY(18deg) rotateZ(2deg)';
+			}
+			
+			function two(){
+				document.getElementById('outer').style.transform='rotateX(-15deg) rotateY(108deg) rotateZ(2deg)';
+			}
+			
+			function three(){
+				document.getElementById('outer').style.transform='rotateX(-15deg) rotateY(198deg) rotateZ(2deg)';
+			}
+			
+			function four(){
+				document.getElementById('outer').style.transform='rotateX(-15deg) rotateY(288deg) rotateZ(2deg)';
+			}
+			
+			function five(){
+				document.getElementById('outer').style.transform='rotateX(-105deg) rotateY(2deg) rotateZ(15deg)';
+			}
+			
+			function six(){
+				document.getElementById('outer').style.transform='rotateX(80deg) rotateY(2deg) rotateZ(-15deg)';
+			}
+		</script>
+	</body>
+</html>
