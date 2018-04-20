@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			body,html{
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				background: lightblue;
+			}
+			
+			.outer{
+				transition: all 0.05s;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width:500px;
+				height: 50px;	
+				border-radius: 5px;
+				background: white;
+				box-shadow: 0 0 50px white;		
+			}
+			
+			.outer>input{
+				margin-left: 5px;
+				font-size: 20px;
+				color: gray;
+				outline: none;			
+				border: none;
+				width:490px;
+				height: 43px;
+			}
+			
+			.outer>div{
+				border-radius: 2px;
+				width: 0;
+				height: 5px;
+				background: yellow;
+			}
+			
+			span{
+				color: gray;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<input type="text" id="input" placeholder="phoneNum" maxlength="50" />
+			<div id="progress"></div>
+			<span id="count">0</span><span>/50</span>
+		</div>
+		
+		<script>
+			var inp = document.getElementById('input');
+			inp.addEventListener('keydown',function(){
+				if(inp.value.length>=50){
+					var outer =document.getElementsByClassName('outer')[0];
+					outer.style="left:4px";
+					setTimeout(function(){
+						outer.style="left:-40px";
+					},50);
+					setTimeout(function(){
+						outer.style="left:0";
+					},100);												
+					setTimeout(function(){
+						outer.style="left:30px";
+					},150);
+					setTimeout(function(){
+						outer.style="left:-30px";
+					},200);
+					setTimeout(function(){
+						outer.style="left:0px";
+					},250);
+					setTimeout(function(){
+						outer.style="left:20px";
+					},300);
+					setTimeout(function(){
+						outer.style="left:-20px";
+					},350);
+					setTimeout(function(){
+						outer.style="left:0px";
+					},400);
+		
+				}else{
+					document.getElementById('progress').style.width=inp.value.length*10+'px';	
+					document.getElementById('count').textContent=inp.value.length+1;
+				}
+			})
+		</script>
+	</body>
+</html>
