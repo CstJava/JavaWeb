@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,html{
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				background: #6f5a5a;
+			}
+			
+			.outer{
+				box-shadow: 0 0 5px pink;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 100px;
+				height: 100px;
+				border-radius:150px ;
+				background: #f23965;
+				transition: all 0.2s linear;
+				
+			}
+			
+			.menu{
+				cursor: pointer;
+				transition: all 0.2s;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 100px;
+				height: 100px;
+				border-radius:50px;
+				background: deeppink;
+			}
+			
+			.menu:hover{
+				box-shadow: 0 0 10px white;
+			}
+			.button{
+				transition: all 0.1s;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 80px;
+				height: 80px;
+			}
+			.menu>div>div{
+				float: left;
+				margin: 5px;		
+				width: 36%;
+				height: 36%;
+				background: hotpink;
+				border-radius: 5px;
+				box-shadow: 0 0 5px deeppink;
+			}
+			
+			.button:hover{
+				width: 75px;
+				height: 75px;	
+			}
+			
+			.btu{
+				cursor: pointer;
+				float: left;
+				margin-left: 20%;
+				margin-top: 20%;
+				width: 20%;
+				height: 20%;
+				background:#731a22;
+				box-shadow: 0 0 10px brown;
+				border-radius: 50%;
+				transition: all 0.2s;
+			}
+			
+			.btu:hover{
+				box-shadow: 0 0 10px white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="menu">
+				<div class="button">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>					
+				</div>
+			</div>
+			<div class="btu"></div>
+			<div class="btu"></div>
+			<div class="btu"></div>
+			<div class="btu"></div>
+		</div>
+		
+		<script>
+			
+			var b= false;
+			var menu = document.getElementsByClassName('menu')[0];
+			var outer = document.getElementsByClassName('outer')[0];
+			menu.addEventListener('click',function(){
+				if(!b){
+					menu.style="background:rgb(156, 65, 59)";
+					outer.style="width:300px;height:300px;transform:rotateZ(45deg)";
+					var btu = document.getElementsByClassName('btu');
+					btu[0].style="margin:15% 10% 10% 15%";
+					btu[1].style="margin: 15% 10% 10% 20%;";
+					btu[2].style="margin:20% 10% 10% 15%;";
+					btu[3].style="margin: 20% 10% 10% 20%";
+					b=true;
+				}else{
+					var btu = document.getElementsByClassName('btu');
+					menu.style="background: deeppink;";
+					outer.style="width:100px;height:100px;transform:rotateZ(0deg)";
+					btu[0].style="margin: 20% 0 0 20%";
+					btu[1].style="margin: 20% 0 0 20%";
+					btu[2].style="margin: 20% 0 0 20%";
+					btu[3].style="margin: 20% 0 0 20%";
+					b=false;
+				}
+			})
+		</script>
+	</body>
+</html>
