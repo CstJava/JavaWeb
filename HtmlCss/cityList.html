@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title></title>
+		
+		<style>
+			
+			body,html{
+				width: 100%;
+				height:100%;
+				margin: 0;
+				padding: 0;
+				background: black;
+			}
+			
+			.outer{
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 400px;
+				height: 100px;
+				background: grey;
+				box-shadow: 0 0 5px orange;
+				border-radius: 20px;
+			}
+			
+			select{
+				width: 100px;
+				height: 50px;
+				margin: 15px;
+				border-radius: 5px;
+				content: 'black';
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<select id="province" onchange="provinceChange()">
+				<option>请选择</option>
+			</select>
+			<select id="city">
+				<option>请选择</option>
+			</select>
+		</div>
+		
+		<script>
+			var provinces  = ['广东','广西','福建','云南','四川'];
+			
+			var citys=[
+			['广州','韶关','汕头','江门'],
+			['南宁','柳州','桂林','北海','梧州','玉林','百色'],
+			['福州','厦门','莆田','三明','泉州','漳州','南平'],
+			['昆明','曲靖','玉溪','宝山','昭通'],
+			['成都','自贡','攀枝花','泸州','德阳','锦阳']
+			];
+		
+			var province = document.getElementById('province');
+			for(var i=0;i<provinces.length;i++){
+				var provinceOption = document.createElement('option');
+				province.appendChild(provinceOption);
+				provinceOption.setAttribute('value',i);
+				provinceOption.text=provinces[i];
+			}
+			
+			function provinceChange(){
+				var index = province.selectedIndex-1;
+				var city = document.getElementById('city');
+				var area = document.getElementById('area')
+				city.options.length=1;
+				for(var i=0;i<citys[index].length;i++){
+					var cityOption = document.createElement('option');
+					city.appendChild(cityOption);
+					cityOption.setAttribute('value',i);
+					cityOption.text=citys[index][i];
+				}		
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>
