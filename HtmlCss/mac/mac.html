@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,html{
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.outer{
+				overflow: hidden;
+				position: absolute;
+				width: 100%;
+				height: 500px;
+				background: url(../img/249001-106.jpg);
+			}
+			
+			.outer:before{
+				content: "";
+				position: absolute;
+				bottom: 0;
+				width: 80%;
+				height: 100px;
+				left: 0;
+				right: 0;
+				margin: auto;
+				background: white;
+				opacity: 0.8;
+				border-radius: 20px 20px 0 0 ;
+			}
+			.menu{
+			
+				position: absolute;
+				display: flex;
+				justify-content: center;
+				width: 80%;
+				height: 100px;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+			
+			.menu img{
+				-webkit-box-reflect:  below 10px -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 30%,rgba(250,250,250,0.3));
+				marker-offset: ;  
+				cursor: pointer;
+				transition: all 0.2s;
+				width: 60px;
+				height: 60px;
+				opacity: 1;
+				margin:20px 0 0 20px ;
+			}
+			
+			.menu img:hover{
+				margin-top: -10px;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="menu">
+				<img src="img/access.png" />
+				<img src="img/acroread.png" />
+				<img src="img/agt games.png" />
+				<img src="img/agt multimedia.png" />
+				<img src="img/audio&video.png" />
+				<img src="img/browser alt.png" />
+				<img src="img/camera.png" />
+				<img src="img/chardevice.png" />
+				<img src="img/education.png" />
+			</div>
+		</div>
+	</body>
+</html>
