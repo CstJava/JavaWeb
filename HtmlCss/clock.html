@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			body,html{
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				background: peachpuff;
+			}
+			
+			#clock{
+				position: absolute;
+				margin: auto;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 200px;
+				height: 200px;
+				border: 10px solid lemonchiffon;
+				border-radius: 50%;
+				background: #eac7cd;
+				box-shadow: 0 0 10px black;
+			}
+			
+			span{
+				font-size: 15px;
+				display: block;	
+				width: 20px;
+				height: 20px;
+				position: absolute;	
+				text-align: center;	
+				color: #9a2b8c;
+			}
+			
+			#clock span:nth-child(1){
+				right: 35px;
+				top: 15px;
+			}
+			
+			#clock span:nth-child(2){
+				right:7px;
+				top: 48px;
+			}
+			
+			#clock span:nth-child(3){
+				color: black;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				right: 0;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			#clock span:nth-child(4){
+				right:7px;
+				bottom: 48px;
+			}
+			
+			#clock span:nth-child(5){
+				right: 35px;
+				bottom: 15px;
+			}
+			
+			
+			#clock span:nth-child(6){
+				color: black;
+				bottom: 0;
+				margin:0 auto;
+				left: 0;
+				right: 0;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			
+			#clock span:nth-child(7){
+				left: 35px;
+				bottom: 15px;
+			}
+			
+			#clock span:nth-child(8){
+				left:7px;
+				bottom: 48px;
+			}
+			
+			#clock span:nth-child(9){
+				color: black;
+				top:0;
+				bottom: 0;
+				margin:auto;
+				left: 0;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			#clock span:nth-child(10){
+				left: 7px;
+				top: 48px;
+			}
+			
+			#clock span:nth-child(11){
+				left:35px;
+				top: 15px;
+			}
+			
+			#clock span:nth-child(12){
+				color: black;
+				font-size: 20px;
+				font-weight: bold;
+				left: 0;
+				right: 0;
+				margin:0 auto;
+			}
+			
+			.center{
+				position: absolute;
+				margin: auto;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				width: 15px;
+				height: 15px;
+				border-radius: 7.5px;
+				background: black;
+			}
+			
+			#hour{
+				position: absolute;
+				left:0;
+				right: 0;
+				top: 50%;
+				margin: 0 auto;
+				width: 10px;
+				height: 50px;
+				background: black;
+				border-radius: 0 0 5px 5px;
+				z-index: 3;
+				transform-origin: 5px 0 ;
+				transition: all 1s linear;
+			}
+			
+			#minute{
+				position: absolute;
+				left:0;
+				right: 0;
+				top: 50%;
+				margin: 0 auto;
+				width: 6px;
+				height: 70px;
+				background: black;
+				border-radius: 0 0 3px 3px;
+				z-index: 2;
+				transform-origin: 3px 0 ;
+				transition: all 1s linear;
+			
+			}
+			
+			#secend{
+				position: absolute;
+				left:0;
+				right: 0;
+				top: 50%;
+				margin: 0 auto;
+				width: 2px;
+				height: 80px;
+				background: red;
+				border-radius: 0 0 1px 1px;
+				z-index: 1;
+				transform-origin: 1px 0 ;
+			}
+			
+			#time{
+				position: absolute;
+				width: 60px;
+				height: 25px;
+				left: 35px;
+				top: 55px;
+				background: white;
+				border-radius:3px ;
+				box-shadow: 0 2px 5px black inset;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="clock">			
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+			<span>7</span>
+			<span>8</span>
+			<span>9</span>
+			<span>10</span>
+			<span>11</span>
+			<span>12</span>
+			<div class="center"></div>
+			<div id="hour"></div>
+			<div id="minute"></div>
+			<div id="secend"></div>
+			<div id="time"></div>
+		</div>
+		
+		<script>
+			
+			window.onload = function(){
+				var hour = document.getElementById('hour');
+				var minute = document.getElementById('minute');
+				var secend = document.getElementById('secend');
+				
+				function time(){	
+				
+					var today = new Date();
+				
+					var hourD = today.getHours();
+					var minuteD = today.getMinutes();
+					var secendD = today.getSeconds();
+
+					var hourZ='rotateZ('+(hourD%12*30+180)+'deg)';
+					var minuteZ='rotateZ('+(minuteD*6+180)+'deg)';
+					var secendZ='rotateZ('+(secendD*6+180)+'deg)';
+					hour.style.transform=hourZ;
+					minute.style.transform=minuteZ;
+					secend.style.transform=secendZ;
+					document.getElementById('time').innerHTML=hourD+":"+minuteD+":"+secendD;
+				}
+			
+				setInterval(time,1000);
+				
+			}
+		</script>
+	</body>
+</html>
