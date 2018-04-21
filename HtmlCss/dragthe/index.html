@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<style>
+			
+			body,html{
+				width:100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;	
+			}
+			
+			.outer{
+				background: linear-gradient(45deg, rgba(255, 0, 0, 1) 0%, rgba(255, 255, 0, 1) 33%, rgba(0, 255, 255, 1) 66%, rgba(255, 0, 255, 1) 100%), radial-gradient(circle at 50% 10%, #fff 0%, #ccc 100%);			
+				background: url(img/249001-106.jpg);
+				background-size: cover;
+				position: absolute;
+				overflow: hidden;
+				margin: auto;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 500px;
+			}
+			
+			#dragthe{
+				cursor: move;
+				width: 200px;
+				height: 200px;
+				background-image: radial-gradient(ellipse closest-corner at 55% 10%, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, 0) 30%), radial-gradient(ellipse closest-side at 70% 15%, rgba(255, 255, 255, .25) 0%, rgba(255, 255, 255, 0) 20%);
+				border-radius:100px;
+				border: 5px solid white;
+				box-shadow: 0 0 50px white inset,0 0 0 1000px black;
+			}
+			
+			h1{
+				position: relative;
+				color: white;
+				text-align: center;
+			}
+			
+			h1:after{
+				width: 100%;
+				content: "Dragthe Glass";
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 100;
+				color: transparent;
+ 				-webkit-text-stroke: 1px rgba(255, 255, 255, .5);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<h1>Dragthe Glass</h1>
+			<div id="dragthe"></div>
+		</div>
+	
+	</body>
+</html>
