@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,html{
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				background: black;
+			}
+			
+			.block{
+				position: absolute;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+			
+			#start{
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 100px;
+				height: 100px;
+				font-size: 40px;
+				text-shadow: 0 0 3px blue;
+				z-index: 1;
+			}
+			
+			#score{
+				position: absolute;
+				width: 80px;
+				height:80px;
+				right: 0;
+				font-size: 50px;
+				font-weight: bold;
+				color: white;
+				text-align: center;
+				border: 5px solid white;
+			}
+			
+			#lever{
+				position: absolute;
+				width: 130px;
+				height:80px;
+				left: 0;
+				font-size: 50px;
+				font-weight: bold;
+				color: white;
+				text-align: center;
+				border: 5px solid white;
+			}
+			
+			#area{
+				position: absolute;
+				top:0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 50%;
+				height: 50%;
+				border: 5px solid white;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="lever">No.1</div>
+		<div id="score">0</div>
+		<div id="start">start</div>
+		<div id="area"></div>
+		
+		<script>
+			
+			var start = document.getElementById('start');
+			var score = document.getElementById('score');
+			var area = document.getElementById('area');
+			var lever_block = document.getElementById('lever');
+			var lever =1;
+			
+			start.onclick=function(){
+				start.style.display="none";
+				add_block();
+			}
+			
+			function add_block(){
+				var blocks = document.getElementsByClassName('block');
+				var length=blocks.length;
+				if(length>=10){
+					alert("通关失败，您的分数是"+score.innerText);
+					for(var i=0;i<length;i++){
+						blocks[0].remove();
+					}
+					start.style.display="block";
+					score.innerHTML=0;
+					lever_block.innerHTML="No.1";
+					lever=1;
+					return;
+				}
+				var block = document.createElement("div");
+				block.setAttribute('class','block');
+				block.style.top=Math.random()*90+'%';
+				block.style.left=Math.random()*90+'%';
+				block.style.background="rgba("+Math.random()*255+","+Math.random()*255+","+Math.random()*255+")";
+				block.style.boxShadow='0 0 20px rgba('+Math.random()*255+","+Math.random()*255+","+Math.random()*255+")";
+				var wid_hei = Math.random()*150+50;
+				block.style.width=wid_hei+"px";
+				block.style.height=wid_hei+"px";
+				block.addEventListener('click',function(){
+					this.remove();	
+					score.innerHTML=parseInt(score.innerText)+lever;
+					if(score.innerHTML==5){
+						lever++;
+						lever_block.innerHTML="No."+2;
+						area.style.width="60%";
+						area.style.height="60%";
+					}else if(score.innerHTML==15){
+						lever++;
+						lever_block.innerHTML="No."+3;
+						area.style.width="70%";
+						area.style.height="70%";
+					}else if(score.innerHTML==45){
+						lever++;
+						lever_block.innerHTML="No."+4;
+						area.style.width="80%";
+						area.style.height="80%";
+					}else if(score.innerHTML==105){
+						lever++;
+						lever_block.innerHTML="No."+5;
+						area.style.width="90%";
+						area.style.height="90%";
+					}else if(score.innerHTML==225){
+						lever++;
+						lever_block.innerHTML="No."+6;
+						area.style.width="100%";
+						area.style.height="100%";
+					}else if(score.innerHTML==535){
+						lever++;
+						lever_block.innerHTML="No."+7;
+					}
+					
+				});
+				area.appendChild(block);
+				
+				setTimeout('add_block('+lever+')',2000/lever);
+				
+			}
+			
+		</script>
+	</body>
+</html>
