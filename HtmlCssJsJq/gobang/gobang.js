@@ -1,3 +1,5 @@
+
+window.onload=function(){
 var start = document.getElementById('start');
 var gobang = document.getElementById('gobang');
 var bottom = document.getElementsByClassName('bottom')[0];
@@ -174,4 +176,5 @@ function judge(num,i,j){
 		}
 	}
 	judgeNum=1;
+}
 }
