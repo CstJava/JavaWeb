@@ -1,4 +1,3 @@
-
 var start = document.getElementById('start');
 var gobang = document.getElementById('gobang');
 var bottom = document.getElementsByClassName('bottom')[0];
@@ -53,7 +52,6 @@ function startGame(){
 		}
 	}
 }
-
 /**
  * 下棋函数，棋子默认白色
  * @param {Object} e
@@ -120,17 +118,17 @@ function judge(num,i,j){
 			judge(5,i-1,j-1);
 		}
 		//判断右上是否有棋子
-		if(i-1>=0&&j+1>=0&&chessNum[i-1][j+1].chess&&chessNum[i][j].color==chessNum[i-1][j+1].color){
+		if(i-1>=0&&j+1<10&&chessNum[i-1][j+1].chess&&chessNum[i][j].color==chessNum[i-1][j+1].color){
 			judgeNum++;
 			judge(6,i-1,j+1);
 		}
 		//判断左下是否有棋子
-		if(i+1>=0&&j-1>=0&&chessNum[i+1][j-1].chess&&chessNum[i][j].color==chessNum[i+1][j-1].color){
+		if(i+1<10&&j-1>=0&&chessNum[i+1][j-1].chess&&chessNum[i][j].color==chessNum[i+1][j-1].color){
 			judgeNum++;
 			judge(7,i+1,j-1);
 		}
 		//判断右下是否有棋子
-		if(i+1>=0&&j+1>=0&&chessNum[i+1][j+1].chess&&chessNum[i][j].color==chessNum[i+1][j+1].color){
+		if(i+1<10&&j+1<10&&chessNum[i+1][j+1].chess&&chessNum[i][j].color==chessNum[i+1][j+1].color){
 			judgeNum++;
 			judge(8,i+1,j+1);
 		}
@@ -140,7 +138,7 @@ function judge(num,i,j){
 			judge(1,i,j+1);
 		}
 	}else if(num==2){
-		if(j-1>=0&&chessNum[i][j-1].chess&&chessNum[i][j].color==chessNum[i+1][j].color){
+		if(j-1>=0&&chessNum[i][j-1].chess&&chessNum[i][j].color==chessNum[i][j-1].color){
 			judgeNum++;
 			judge(2,i,j-1);
 		}
@@ -160,21 +158,20 @@ function judge(num,i,j){
 			judge(5,i-1,j-1);
 		}
 	}else if(num==6){
-		if(i-1>=0&&j+1>=0&&chessNum[i-1][j+1].chess&&chessNum[i][j].color==chessNum[i-1][j+1].color){
+		if(i-1>=0&&j+1<10&&chessNum[i-1][j+1].chess&&chessNum[i][j].color==chessNum[i-1][j+1].color){
 			judgeNum++;
 			judge(6,i-1,j+1);
 		}
 	}else if(num==7){
-		if(i+1>=0&&j-1>=0&&chessNum[i+1][j-1].chess&&chessNum[i][j].color==chessNum[i+1][j-1].color){
+		if(i+1<10&&j-1>=0&&chessNum[i+1][j-1].chess&&chessNum[i][j].color==chessNum[i+1][j-1].color){
 			judgeNum++;
 			judge(7,i+1,j-1);
 		}
 	}else if(num==8){
-		if(i+1>=0&&j+1>=0&&chessNum[i+1][j+1].chess&&chessNum[i][j].color==chessNum[i+1][j+1].color){
+		if(i+1<10&&j+1<10&&chessNum[i+1][j+1].chess&&chessNum[i][j].color==chessNum[i+1][j+1].color){
 			judgeNum++;
 			judge(8,i+1,j+1);
 		}
 	}
 	judgeNum=1;
-
 }
