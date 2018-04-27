@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			body,html{
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			 	background-image: -webkit-linear-gradient(left,#48898c,#a887cc,#8c6767);
+				-webkit-perspective: 1500;
+			}
+			
+			#gobang{
+				position: absolute;
+				width: 40%;
+				height: 80%;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				background: #79543973;
+				border-radius: 20px;
+				transform-style: preserve-3d;
+				transform: rotateX(60deg) translateY(100px);
+				transition: all 1s;
+			}
+			
+			#gobang:before{
+				content: "go bang";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: black;
+				box-shadow: 0 0 10px black;
+				border-radius: 20px;
+				transform: translateZ(-50px);
+			}
+			
+			#gobang .wall{
+				position: absolute;
+				width: 100%;
+				height: 100%;				
+			}
+			
+			#gobang .wall .top{
+				position: absolute;
+				width: 100%;
+				height: 20%;
+			}
+			
+			#gobang .wall .top #time{
+				position: absolute;
+				width: 30%;
+				height: 40%;
+				left: 10%;
+				bottom: 0;
+				text-align: center;
+				
+			}
+			
+			#gobang .wall .top .turn{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				border: 2px solid white;
+				border-radius: 5px;
+				text-align: center;
+				color: white;
+			}
+			
+			#gobang .wall .top .round{
+				position: absolute;
+				width: 30%;
+				height:40%;
+				right: 10%;
+				bottom: 0;
+				text-align: center;
+			}
+			
+			#gobang .wall .bottom{
+				position: absolute;
+				width: 300px;
+				height: 300px;
+				bottom: 10%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+			
+			#start{
+				cursor: pointer;
+				position: absolute;
+				width: 10%;
+				top: 20%;
+				left: 0;
+				right: 0;
+				margin: auto;
+				text-align: center;
+				border: 2px solid #2a5b8a;
+				background: cornflowerblue;
+				box-shadow: 0 0 2px black;
+				border-radius: 5px;
+				z-index: 2;		
+				transition: all 1s;		
+			}
+			
+			#start:hover{
+				background: #0946b5;
+			}
+			
+			.block{
+				position: absolute;
+				width: 9%;
+				height: 9%;
+				border-bottom: 3px solid #5d5136;
+				border-right: 3px solid #5d5136;
+			}
+			
+			.chess{
+				position: absolute;
+				width: 90%;
+				height: 90%;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				background:-webkit-radial-gradient(65% 30%,white,black);
+				/*background: -webkit-radial-gradient(65% 30%,#3a3434,black);*/
+				border-radius: 50%;
+				box-shadow: 0 0 2px black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="start"><h1>Start</h1></div>
+		<div id="gobang">
+			<div class="wall">
+				<div class="top">
+					<h2 id="time">19:26:27</h2>
+					<h1 class="turn">黑</h1>
+					<h2 class="round">round 1</h2>
+				</div>
+				<div class="bottom">
+					<!--<div class="block">
+						<div class="chess"></div>
+					</div>-->
+				</div>					
+			</div>
+		</div>
+	</body>
+	
+	<script src="gobang.js"></script>
+</html>
