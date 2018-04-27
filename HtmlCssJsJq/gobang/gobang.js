@@ -1,4 +1,4 @@
-window.onload()=function(){
+window.onload=function(){
 var start = document.getElementById('start');
 var gobang = document.getElementById('gobang');
 var bottom = document.getElementsByClassName('bottom')[0];
